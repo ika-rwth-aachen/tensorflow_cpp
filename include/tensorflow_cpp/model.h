@@ -57,10 +57,10 @@ class Model {
    * "0,1"
    */
   Model(const std::string& filepath, const bool allow_growth = true,
-        const double per_process_memory_gpu_fraction = 0,
+        const double per_process_gpu_memory_fraction = 0,
         const std::string& visible_device_list = "") {
 
-    loadModel(filepath, allow_growth, per_process_memory_gpu_fraction,
+    loadModel(filepath, allow_growth, per_process_gpu_memory_fraction,
               visible_device_list);
   }
 
@@ -77,7 +77,7 @@ class Model {
    * "0,1"
    */
   void loadModel(const std::string& filepath, const bool allow_growth = true,
-                 const double per_process_memory_gpu_fraction = 0,
+                 const double per_process_gpu_memory_fraction = 0,
                  const std::string& visible_device_list = "") {
 
     is_frozen_graph_ = (filepath.substr(filepath.size() - 3) == ".pb");
@@ -86,12 +86,12 @@ class Model {
     // load model
     if (is_frozen_graph_) {
       graph_def_ = loadFrozenGraph(filepath);
-      session_ = createSession(allow_growth, per_process_memory_gpu_fraction,
+      session_ = createSession(allow_growth, per_process_gpu_memory_fraction,
                                visible_device_list);
       loadGraphIntoSession(session_, graph_def_);
     } else {
       saved_model_ =
-        loadSavedModel(filepath, allow_growth, per_process_memory_gpu_fraction,
+        loadSavedModel(filepath, allow_growth, per_process_gpu_memory_fraction,
                        visible_device_list);
       session_ = saved_model_.GetSession();
     }
