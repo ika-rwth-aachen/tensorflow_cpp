@@ -30,7 +30,7 @@
 
 // load single-input/single-output model
 tensorflow_cpp::Model model;
-model.loadModel(model_dir);
+model.loadModel(model_path);
 
 // log model info
 std::cout << model.getInfoString() << std::endl;
@@ -60,7 +60,7 @@ tensorflow::Tensor output_tensor = model(input_tensor);
 
 // load multi-input/multi-output model
 tensorflow_cpp::Model model;
-model.loadModel(model_dir);
+model.loadModel(model_path);
 
 // log model info
 std::cout << model.getInfoString() << std::endl;
@@ -99,7 +99,7 @@ tensorflow::Tensor output_tensor_2& = outputs[1];
 
 // load multi-input/multi-output model
 tensorflow_cpp::Model model;
-model.loadModel(model_dir);
+model.loadModel(model_path);
 
 // log model info
 std::cout << model.getInfoString() << std::endl;
