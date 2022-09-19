@@ -177,3 +177,5 @@ CATKIN_IGNORE
 *.code-workspace
 
 # End of https://www.toptal.com/developers/gitignore/api/c++,ros,linux,macos,visualstudiocode,cmake
+
+doc/
