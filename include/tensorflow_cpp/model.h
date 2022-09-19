@@ -29,6 +29,8 @@ SOFTWARE.
 #include <utility>
 #include <vector>
 
+#include <tensorflow/core/platform/env.h>
+#include <tensorflow/core/public/session.h>
 #include <tensorflow_cpp/graph_utils.h>
 #include <tensorflow_cpp/saved_model_utils.h>
 #include <tensorflow_cpp/utils.h>
@@ -539,6 +541,71 @@ class Model {
       auto dummy_tensor_shape =
         tf::TensorShape(tf::gtl::ArraySlice<long int>(dummy_shape));
       tf::Tensor dummy(input_types[k], dummy_tensor_shape);
+      // init to zero, based on type
+      switch (input_types[k]) {
+        case tf::DT_FLOAT:
+          dummy.flat<float>().setZero();
+          break;
+        case tf::DT_DOUBLE:
+          dummy.flat<double>().setZero();
+        case tf::DT_INT32:
+          dummy.flat<tf::int32>().setZero();
+          break;
+        case tf::DT_UINT32:
+          dummy.flat<tf::uint32>().setZero();
+          break;
+        case tf::DT_UINT8:
+          dummy.flat<tf::uint8>().setZero();
+          break;
+        case tf::DT_UINT16:
+          dummy.flat<tf::uint16>().setZero();
+          break;
+        case tf::DT_INT16:
+          dummy.flat<tf::int16>().setZero();
+          break;
+        case tf::DT_INT8:
+          dummy.flat<tf::int8>().setZero();
+          break;
+        case tf::DT_STRING:
+          dummy.flat<tf::tstring>().setZero();
+          break;
+        case tf::DT_COMPLEX64:
+          dummy.flat<tf::complex64>().setZero();
+          break;
+        case tf::DT_COMPLEX128:
+          dummy.flat<tf::complex128>().setZero();
+          break;
+        case tf::DT_INT64:
+          dummy.flat<tf::int64>().setZero();
+          break;
+        case tf::DT_UINT64:
+          dummy.flat<tf::uint64>().setZero();
+          break;
+        case tf::DT_BOOL:
+          dummy.flat<bool>().setZero();
+          break;
+        case tf::DT_QINT8:
+          dummy.flat<tf::qint8>().setZero();
+          break;
+        case tf::DT_QUINT8:
+          dummy.flat<tf::quint8>().setZero();
+          break;
+        case tf::DT_QUINT16:
+          dummy.flat<tf::quint16>().setZero();
+          break;
+        case tf::DT_QINT16:
+          dummy.flat<tf::qint16>().setZero();
+          break;
+        case tf::DT_QINT32:
+          dummy.flat<tf::qint32>().setZero();
+          break;
+        case tf::DT_BFLOAT16:
+          dummy.flat<tf::bfloat16>().setZero();
+          break;
+        case tf::DT_HALF:
+          dummy.flat<Eigen::half>().setZero();
+          break;
+      }
       input_dummies.push_back(dummy);
     }
 
