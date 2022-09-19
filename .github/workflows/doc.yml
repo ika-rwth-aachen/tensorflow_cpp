@@ -14,7 +14,7 @@ jobs:
       - name: Build Doxygen
         uses: mattnotmitt/doxygen-action@v1.1.0
         with:
-          doxyfile-path: "./Doxyfile"
+          doxyfile-path: "./doc/Doxyfile"
           working-directory: "."
       - name: Publish Documentation
         uses: peaceiris/actions-gh-pages@v3
