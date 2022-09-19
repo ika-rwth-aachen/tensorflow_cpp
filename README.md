@@ -1,11 +1,11 @@
 # tensorflow_cpp
 
 <p align="center">
-  <img src="https://img.shields.io/badge/ROS1-noetic-green"/></a>
-  <img src="https://img.shields.io/github/v/release/ika-rwth-aachen/tensorflow_cpp"/></a>
-  <img src="https://img.shields.io/github/license/ika-rwth-aachen/tensorflow_cpp"/></a>
-  <img src="https://github.com/ika-rwth-aachen/tensorflow_cpp/actions/workflows/doc.yml/badge.svg"/></a>
-  <img src="https://img.shields.io/github/stars/ika-rwth-aachen/tensorflow_cpp?style=social"/></a>
+  <img src="https://img.shields.io/badge/ROS1-noetic-green"/>
+  <img src="https://img.shields.io/github/v/release/ika-rwth-aachen/tensorflow_cpp"/>
+  <img src="https://img.shields.io/github/license/ika-rwth-aachen/tensorflow_cpp"/>
+  <a href="https://ika-rwth-aachen.github.io/tensorflow_cpp"><img src="https://github.com/ika-rwth-aachen/tensorflow_cpp/actions/workflows/doc.yml/badge.svg"/></a>
+  <img src="https://img.shields.io/github/stars/ika-rwth-aachen/tensorflow_cpp?style=social"/>
 </p>
 
 *tensorflow_cpp* is a header-only library that provides helpful wrappers around the [TensorFlow C++ API](https://www.tensorflow.org/api_docs/cc), allowing you to easily load, inspect, and run saved models and frozen graphs. The library is easy to integrate into CMake projects, but is also available as a [ROS](https://www.ros.org/) package.
