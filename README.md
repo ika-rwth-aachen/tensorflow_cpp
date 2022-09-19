@@ -4,6 +4,7 @@
   <img src="https://img.shields.io/badge/ROS1-noetic-green"/></a>
   <img src="https://img.shields.io/github/v/release/ika-rwth-aachen/tensorflow_cpp"/></a>
   <img src="https://img.shields.io/github/license/ika-rwth-aachen/tensorflow_cpp"/></a>
+  <img src="https://github.com/ika-rwth-aachen/tensorflow_cpp/actions/workflows/doc.yml/badge.svg"/></a>
   <img src="https://img.shields.io/github/stars/ika-rwth-aachen/tensorflow_cpp?style=social"/></a>
 </p>
 
