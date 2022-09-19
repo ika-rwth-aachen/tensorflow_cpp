@@ -1,8 +1,10 @@
 name: Publish Doxygen Documentation
 
-# on:
-#   push:
-#     branches: [ master ]
+on:
+  push:
+    branches:
+      - main
+      - doc
 
 jobs:
   build:
