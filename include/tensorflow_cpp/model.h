@@ -20,6 +20,10 @@ SOFTWARE.
 ==============================================================================
 */
 
+/**
+ * @file
+ * @brief Model class
+ */
 
 #pragma once
 
@@ -35,11 +39,14 @@ SOFTWARE.
 #include <tensorflow_cpp/saved_model_utils.h>
 #include <tensorflow_cpp/utils.h>
 
+/**
+ * @brief Namespace for tensorflow_cpp library
+ */
 namespace tensorflow_cpp {
 
 
 /**
- * @brief Wrapper class for running TensorFlow SavedModels.
+ * @brief Wrapper class for running TensorFlow SavedModels or FrozenGraphs.
  */
 class Model {
 
@@ -61,10 +68,10 @@ class Model {
    */
   Model(const std::string& model_path, const bool warmup = false,
         const bool allow_growth = true,
-        const double per_process_memory_gpu_fraction = 0,
+        const double per_process_gpu_memory_fraction = 0,
         const std::string& visible_device_list = "") {
 
-    loadModel(model_path, warmup, allow_growth, per_process_memory_gpu_fraction,
+    loadModel(model_path, warmup, allow_growth, per_process_gpu_memory_fraction,
               visible_device_list);
   }
 
@@ -83,7 +90,7 @@ class Model {
    */
   void loadModel(const std::string& model_path, const bool warmup = false,
                  const bool allow_growth = true,
-                 const double per_process_memory_gpu_fraction = 0,
+                 const double per_process_gpu_memory_fraction = 0,
                  const std::string& visible_device_list = "") {
 
     is_frozen_graph_ = (model_path.substr(model_path.size() - 3) == ".pb");
@@ -92,13 +99,13 @@ class Model {
     // load model
     if (is_frozen_graph_) {
       graph_def_ = loadFrozenGraph(model_path);
-      session_ = createSession(allow_growth, per_process_memory_gpu_fraction,
+      session_ = createSession(allow_growth, per_process_gpu_memory_fraction,
                                visible_device_list);
       loadGraphIntoSession(session_, graph_def_);
     } else {
       saved_model_ =
         loadSavedModel(model_path, allow_growth,
-                       per_process_memory_gpu_fraction, visible_device_list);
+                       per_process_gpu_memory_fraction, visible_device_list);
       session_ = saved_model_.GetSession();
     }
 

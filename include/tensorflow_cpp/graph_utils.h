@@ -20,6 +20,10 @@ SOFTWARE.
 ==============================================================================
 */
 
+/**
+ * @file
+ * @brief Utility functions for FrozenGraphs
+ */
 
 #pragma once
 
