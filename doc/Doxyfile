@@ -8,7 +8,7 @@ PROJECT_NAME           = "tensorflow_cpp"
 PROJECT_NUMBER         = 1.0.0
 # PROJECT_BRIEF          =
 # PROJECT_LOGO           =
-OUTPUT_DIRECTORY       = doc
+# OUTPUT_DIRECTORY       =
 # CREATE_SUBDIRS         = NO
 # ALLOW_UNICODE_NAMES    = NO
 # OUTPUT_LANGUAGE        = English
@@ -116,7 +116,7 @@ OUTPUT_DIRECTORY       = doc
 #---------------------------------------------------------------------------
 # Configuration options related to the input files
 #---------------------------------------------------------------------------
-# INPUT                  =
+INPUT                  = README.md ../include
 # INPUT_ENCODING         = UTF-8
 # FILE_PATTERNS          = *.c \
 #                          *.cc \
@@ -166,7 +166,7 @@ OUTPUT_DIRECTORY       = doc
 #                          *.qsf \
 #                          *.ice
 RECURSIVE              = YES
-EXCLUDE                = README.md examples/ tests/
+# EXCLUDE                =
 # EXCLUDE_SYMLINKS       = NO
 # EXCLUDE_PATTERNS       =
 # EXCLUDE_SYMBOLS        =
@@ -178,7 +178,7 @@ EXCLUDE                = README.md examples/ tests/
 # FILTER_PATTERNS        =
 # FILTER_SOURCE_FILES    = NO
 # FILTER_SOURCE_PATTERNS =
-USE_MDFILE_AS_MAINPAGE = doc/README.md
+USE_MDFILE_AS_MAINPAGE = README.md
 #---------------------------------------------------------------------------
 # Configuration options related to source browsing
 #---------------------------------------------------------------------------
