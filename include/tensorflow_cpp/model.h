@@ -20,6 +20,10 @@ SOFTWARE.
 ==============================================================================
 */
 
+/**
+ * @file
+ * @brief Model class
+ */
 
 #pragma once
 
@@ -33,11 +37,14 @@ SOFTWARE.
 #include <tensorflow_cpp/saved_model_utils.h>
 #include <tensorflow_cpp/utils.h>
 
+/**
+ * @brief Namespace for tensorflow_cpp library
+ */
 namespace tensorflow_cpp {
 
 
 /**
- * @brief Wrapper class for running TensorFlow SavedModels.
+ * @brief Wrapper class for running TensorFlow SavedModels or FrozenGraphs.
  */
 class Model {
 

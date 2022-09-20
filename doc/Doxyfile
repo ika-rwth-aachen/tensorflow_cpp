@@ -5,7 +5,7 @@
 #---------------------------------------------------------------------------
 # DOXYFILE_ENCODING      = UTF-8
 PROJECT_NAME           = "tensorflow_cpp"
-# PROJECT_NUMBER         =
+PROJECT_NUMBER         = 1.0.0
 # PROJECT_BRIEF          =
 # PROJECT_LOGO           =
 OUTPUT_DIRECTORY       = doc
@@ -166,7 +166,7 @@ OUTPUT_DIRECTORY       = doc
 #                          *.qsf \
 #                          *.ice
 RECURSIVE              = YES
-# EXCLUDE                =
+EXCLUDE                = README.md examples/ tests/
 # EXCLUDE_SYMLINKS       = NO
 # EXCLUDE_PATTERNS       =
 # EXCLUDE_SYMBOLS        =
@@ -178,12 +178,12 @@ RECURSIVE              = YES
 # FILTER_PATTERNS        =
 # FILTER_SOURCE_FILES    = NO
 # FILTER_SOURCE_PATTERNS =
-USE_MDFILE_AS_MAINPAGE = README.md
+USE_MDFILE_AS_MAINPAGE = doc/README.md
 #---------------------------------------------------------------------------
 # Configuration options related to source browsing
 #---------------------------------------------------------------------------
-# SOURCE_BROWSER         = NO
-# INLINE_SOURCES         = NO
+SOURCE_BROWSER         = YES
+INLINE_SOURCES         = YES
 # STRIP_CODE_COMMENTS    = YES
 # REFERENCED_BY_RELATION = NO
 # REFERENCES_RELATION    = NO
@@ -263,7 +263,7 @@ USE_MDFILE_AS_MAINPAGE = README.md
 #---------------------------------------------------------------------------
 # Configuration options related to the LaTeX output
 #---------------------------------------------------------------------------
-# GENERATE_LATEX         = YES
+GENERATE_LATEX         = NO
 # LATEX_OUTPUT           = latex
 # LATEX_CMD_NAME         =
 # MAKEINDEX_CMD_NAME     = makeindex

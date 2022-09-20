@@ -20,6 +20,10 @@ SOFTWARE.
 ==============================================================================
 */
 
+/**
+ * @file
+ * @brief Utility functions for SavedModels
+ */
 
 #pragma once
 
@@ -296,6 +300,7 @@ std::vector<int> getSavedModelNodeShape(
  *
  * @param[in]  saved_model   SavedModel
  * @param[in]  node_name     node name
+ * @param[in]  signature     SavedModel signature to query
  *
  * @return  tf::DataType     node datatype
  */
