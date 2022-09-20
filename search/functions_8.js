@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['savedmodel_0',['savedModel',['../classtensorflow__cpp_1_1Model.html#a9a918d93215fb44f56fcedf707bf77c4',1,'tensorflow_cpp::Model']]],
-  ['session_1',['session',['../classtensorflow__cpp_1_1Model.html#a98ba82bf16b690acd76fb14fc3647c6b',1,'tensorflow_cpp::Model']]]
+  ['operator_28_29_0',['operator()',['../classtensorflow__cpp_1_1Model.html#a030461ff1ac9d899ca8b3c4f4ca872eb',1,'tensorflow_cpp::Model::operator()(const std::vector&lt; std::pair&lt; std::string, tf::Tensor &gt; &gt; &amp;inputs, const std::vector&lt; std::string &gt; &amp;output_names)'],['../classtensorflow__cpp_1_1Model.html#adeb4380c223880c0276c8a626deb182c',1,'tensorflow_cpp::Model::operator()(const tf::Tensor &amp;input_tensor)'],['../classtensorflow__cpp_1_1Model.html#abaf537ca1ba5b7fd9fbedc1cd5f78c72',1,'tensorflow_cpp::Model::operator()(const std::vector&lt; tf::Tensor &gt; &amp;input_tensors)']]],
+  ['outputnames_1',['outputNames',['../classtensorflow__cpp_1_1Model.html#ae0aa2cb85bbc8a009260f92c56ffeccb',1,'tensorflow_cpp::Model']]]
 ];

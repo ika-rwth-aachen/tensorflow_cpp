@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['frozengraph_0',['frozenGraph',['../classtensorflow__cpp_1_1Model.html#a6b23216cd8892679e53396e424a50138',1,'tensorflow_cpp::Model']]]
+  ['dummycall_0',['dummyCall',['../classtensorflow__cpp_1_1Model.html#a85da39499303ae2824ea32316e57df4b',1,'tensorflow_cpp::Model']]]
 ];
