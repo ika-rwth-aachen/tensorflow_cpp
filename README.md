@@ -1,14 +1,14 @@
 # tensorflow_cpp
 
 <p align="center">
-  <img src="https://img.shields.io/badge/ROS1-noetic-green"/>
   <img src="https://img.shields.io/github/v/release/ika-rwth-aachen/tensorflow_cpp"/>
   <img src="https://img.shields.io/github/license/ika-rwth-aachen/tensorflow_cpp"/>
   <a href="https://ika-rwth-aachen.github.io/tensorflow_cpp"><img src="https://github.com/ika-rwth-aachen/tensorflow_cpp/actions/workflows/doc.yml/badge.svg"/></a>
+  <img src="https://img.shields.io/badge/ROS1-noetic-green"/>
   <img src="https://img.shields.io/github/stars/ika-rwth-aachen/tensorflow_cpp?style=social"/>
 </p>
 
-*tensorflow_cpp* is a header-only library that provides helpful wrappers around the [TensorFlow C++ API](https://www.tensorflow.org/api_docs/cc), allowing you to easily load, inspect, and run saved models and frozen graphs. The library is easy to integrate into CMake projects, but is also available as a [ROS](https://www.ros.org/) package.
+*tensorflow_cpp* is a header-only library that provides helpful wrappers around the [TensorFlow C++ API](https://www.tensorflow.org/api_docs/cc), allowing you to **easily load, inspect, and run saved models and frozen graphs in C++**. The library is easy to integrate into CMake projects, but is also available as a [ROS](https://www.ros.org/) package.
 
 - [Examples](#examples)
 - [Installation](#installation)
@@ -16,6 +16,7 @@
   - [CMake](#cmake)
   - [ROS](#ros)
 - [Testing](#testing)
+- [Documentation](#documentation)
 
 
 ## Examples
@@ -24,12 +25,14 @@
 
 ```cpp
 #include <iostream>
+#include <string>
 #include <vector>
 
 #include <tensorflow/core/framework/tensor.h>
 #include <tensorflow_cpp/model.h>
 
 // load single-input/single-output model
+std::string model_dir = "/PATH/TO/MODEL";
 tensorflow_cpp::Model model;
 model.loadModel(model_dir);
 
@@ -54,12 +57,14 @@ tensorflow::Tensor output_tensor = model(input_tensor);
 
 ```cpp
 #include <iostream>
+#include <string>
 #include <vector>
 
 #include <tensorflow/core/framework/tensor.h>
 #include <tensorflow_cpp/model.h>
 
 // load multi-input/multi-output model
+std::string model_dir = "/PATH/TO/MODEL";
 tensorflow_cpp::Model model;
 model.loadModel(model_dir);
 
@@ -99,6 +104,7 @@ tensorflow::Tensor output_tensor_2& = outputs[1];
 #include <tensorflow_cpp/model.h>
 
 // load multi-input/multi-output model
+std::string model_dir = "/PATH/TO/MODEL";
 tensorflow_cpp::Model model;
 model.loadModel(model_dir);
 
@@ -208,3 +214,8 @@ cmake -DBUILD_TESTING=ON ..
 make
 ctest
 ```
+
+
+## Documentation
+
+[Click here](https://ika-rwth-aachen.github.io/tensorflow_cpp) to be taken to the full API documentation.
