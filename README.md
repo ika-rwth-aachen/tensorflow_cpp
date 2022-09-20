@@ -32,9 +32,9 @@
 #include <tensorflow_cpp/model.h>
 
 // load single-input/single-output model
-std::string model_dir = "/PATH/TO/MODEL";
+std::string model_path = "/PATH/TO/MODEL";
 tensorflow_cpp::Model model;
-model.loadModel(model_dir);
+model.loadModel(model_path);
 
 // log model info
 std::cout << model.getInfoString() << std::endl;
@@ -64,9 +64,9 @@ tensorflow::Tensor output_tensor = model(input_tensor);
 #include <tensorflow_cpp/model.h>
 
 // load multi-input/multi-output model
-std::string model_dir = "/PATH/TO/MODEL";
+std::string model_path = "/PATH/TO/MODEL";
 tensorflow_cpp::Model model;
-model.loadModel(model_dir);
+model.loadModel(model_path);
 
 // log model info
 std::cout << model.getInfoString() << std::endl;
@@ -104,9 +104,9 @@ tensorflow::Tensor output_tensor_2& = outputs[1];
 #include <tensorflow_cpp/model.h>
 
 // load multi-input/multi-output model
-std::string model_dir = "/PATH/TO/MODEL";
+std::string model_path = "/PATH/TO/MODEL";
 tensorflow_cpp::Model model;
-model.loadModel(model_dir);
+model.loadModel(model_path);
 
 // log model info
 std::cout << model.getInfoString() << std::endl;
