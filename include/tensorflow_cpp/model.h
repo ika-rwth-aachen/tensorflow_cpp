@@ -29,6 +29,8 @@ SOFTWARE.
 #include <utility>
 #include <vector>
 
+#include <tensorflow/core/platform/env.h>
+#include <tensorflow/core/public/session.h>
 #include <tensorflow_cpp/graph_utils.h>
 #include <tensorflow_cpp/saved_model_utils.h>
 #include <tensorflow_cpp/utils.h>
@@ -50,17 +52,19 @@ class Model {
   /**
    * @brief Creates a model by loading it from disk.
    *
-   * @param[in]  filepath                         SavedModel or FrozenGraph path
+   * @param[in]  model_path                       SavedModel or FrozenGraph path
+   * @param[in]  warmup                           run dummy inference to warmup
    * @param[in]  allow_growth                     dynamically grow GPU usage
    * @param[in]  per_process_gpu_memory_fraction  maximum GPU memory fraction
    * @param[in]  visible_device_list              list of GPUs to use, e.g.
    * "0,1"
    */
-  Model(const std::string& filepath, const bool allow_growth = true,
+  Model(const std::string& model_path, const bool warmup = false,
+        const bool allow_growth = true,
         const double per_process_memory_gpu_fraction = 0,
         const std::string& visible_device_list = "") {
 
-    loadModel(filepath, allow_growth, per_process_memory_gpu_fraction,
+    loadModel(model_path, warmup, allow_growth, per_process_memory_gpu_fraction,
               visible_device_list);
   }
 
@@ -70,29 +74,31 @@ class Model {
    * After the model has loaded, it's also run once with dummy inputs in order
    * to speed-up the first actual inference call.
    *
-   * @param[in]  filepath                         SavedModel or FrozenGraph path
+   * @param[in]  model_path                       SavedModel or FrozenGraph path
+   * @param[in]  warmup                           run dummy inference to warmup
    * @param[in]  allow_growth                     dynamically grow GPU usage
    * @param[in]  per_process_gpu_memory_fraction  maximum GPU memory fraction
    * @param[in]  visible_device_list              list of GPUs to use, e.g.
    * "0,1"
    */
-  void loadModel(const std::string& filepath, const bool allow_growth = true,
+  void loadModel(const std::string& model_path, const bool warmup = false,
+                 const bool allow_growth = true,
                  const double per_process_memory_gpu_fraction = 0,
                  const std::string& visible_device_list = "") {
 
-    is_frozen_graph_ = (filepath.substr(filepath.size() - 3) == ".pb");
+    is_frozen_graph_ = (model_path.substr(model_path.size() - 3) == ".pb");
     is_saved_model_ = !is_frozen_graph_;
 
     // load model
     if (is_frozen_graph_) {
-      graph_def_ = loadFrozenGraph(filepath);
+      graph_def_ = loadFrozenGraph(model_path);
       session_ = createSession(allow_growth, per_process_memory_gpu_fraction,
                                visible_device_list);
       loadGraphIntoSession(session_, graph_def_);
     } else {
       saved_model_ =
-        loadSavedModel(filepath, allow_growth, per_process_memory_gpu_fraction,
-                       visible_device_list);
+        loadSavedModel(model_path, allow_growth,
+                       per_process_memory_gpu_fraction, visible_device_list);
       session_ = saved_model_.GetSession();
     }
 
@@ -118,7 +124,7 @@ class Model {
     n_outputs_ = output_names_.size();
 
     // run dummy inference to warm-up
-    dummyCall();
+    if (warmup) dummyCall();
   }
 
   /**
@@ -139,7 +145,7 @@ class Model {
    *
    * The input/output names are expected to be set to the model layer names
    * given during model construction. Information about the model can be
-   * printed using `logInfo`. For FrozenGraphs, layer names are unknown
+   * printed using `getInfoString`. For FrozenGraphs, layer names are unknown
    * and node names are expected.
    *
    * @param[in]  inputs                                       inputs by name
@@ -535,6 +541,71 @@ class Model {
       auto dummy_tensor_shape =
         tf::TensorShape(tf::gtl::ArraySlice<long int>(dummy_shape));
       tf::Tensor dummy(input_types[k], dummy_tensor_shape);
+      // init to zero, based on type
+      switch (input_types[k]) {
+        case tf::DT_FLOAT:
+          dummy.flat<float>().setZero();
+          break;
+        case tf::DT_DOUBLE:
+          dummy.flat<double>().setZero();
+        case tf::DT_INT32:
+          dummy.flat<tf::int32>().setZero();
+          break;
+        case tf::DT_UINT32:
+          dummy.flat<tf::uint32>().setZero();
+          break;
+        case tf::DT_UINT8:
+          dummy.flat<tf::uint8>().setZero();
+          break;
+        case tf::DT_UINT16:
+          dummy.flat<tf::uint16>().setZero();
+          break;
+        case tf::DT_INT16:
+          dummy.flat<tf::int16>().setZero();
+          break;
+        case tf::DT_INT8:
+          dummy.flat<tf::int8>().setZero();
+          break;
+        case tf::DT_STRING:
+          dummy.flat<tf::tstring>().setZero();
+          break;
+        case tf::DT_COMPLEX64:
+          dummy.flat<tf::complex64>().setZero();
+          break;
+        case tf::DT_COMPLEX128:
+          dummy.flat<tf::complex128>().setZero();
+          break;
+        case tf::DT_INT64:
+          dummy.flat<tf::int64>().setZero();
+          break;
+        case tf::DT_UINT64:
+          dummy.flat<tf::uint64>().setZero();
+          break;
+        case tf::DT_BOOL:
+          dummy.flat<bool>().setZero();
+          break;
+        case tf::DT_QINT8:
+          dummy.flat<tf::qint8>().setZero();
+          break;
+        case tf::DT_QUINT8:
+          dummy.flat<tf::quint8>().setZero();
+          break;
+        case tf::DT_QUINT16:
+          dummy.flat<tf::quint16>().setZero();
+          break;
+        case tf::DT_QINT16:
+          dummy.flat<tf::qint16>().setZero();
+          break;
+        case tf::DT_QINT32:
+          dummy.flat<tf::qint32>().setZero();
+          break;
+        case tf::DT_BFLOAT16:
+          dummy.flat<tf::bfloat16>().setZero();
+          break;
+        case tf::DT_HALF:
+          dummy.flat<Eigen::half>().setZero();
+          break;
+      }
       input_dummies.push_back(dummy);
     }
 
