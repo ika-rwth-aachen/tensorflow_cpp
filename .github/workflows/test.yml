@@ -5,7 +5,7 @@ on: push
 jobs:
   run:
     runs-on: ubuntu-latest
-    container: rwthika/tensorflow-cc:latest
+    container: rwthika/tensorflow-cc:latest-gpu
     steps:
       - name: Install build dependencies
         run: |
