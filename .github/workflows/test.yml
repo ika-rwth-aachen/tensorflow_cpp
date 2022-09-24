@@ -7,13 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     container: rwthika/tensorflow-cc:latest
     steps:
-      - name: Install CMake
+      - name: Install build dependencies
         run: |
           apt update
-          apt install -y cmake
+          apt install -y cmake git
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Run Tests
+      - name: Run tests
         run: |
           mkdir -p build
           cd build
