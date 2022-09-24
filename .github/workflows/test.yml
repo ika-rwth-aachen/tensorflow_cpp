@@ -3,7 +3,7 @@ name: Test
 on: push
 
 jobs:
-  Run Tests:
+  run:
     runs-on: ubuntu-latest
     container: rwthika/tensorflow-cc:latest
     steps:
