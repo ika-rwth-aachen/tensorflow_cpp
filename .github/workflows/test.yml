@@ -1,0 +1,22 @@
+name: Test
+
+on: push
+
+jobs:
+  Run Tests:
+    runs-on: ubuntu-latest
+    container: rwthika/tensorflow-cc:latest
+    steps:
+      - name: Install CMake
+        run: |
+          apt update
+          apt install cmake
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Run Tests
+        run: |
+          mkdir -p build
+          cd build
+          cmake -DBUILD_TESTING=ON ..
+          make
+          ctest
