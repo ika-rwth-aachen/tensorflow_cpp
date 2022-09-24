@@ -10,7 +10,7 @@ jobs:
       - name: Install CMake
         run: |
           apt update
-          apt install cmake
+          apt install -y cmake
       - name: Checkout repository
         uses: actions/checkout@v3
       - name: Run Tests
