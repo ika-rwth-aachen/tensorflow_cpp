@@ -3,6 +3,7 @@
 <p align="center">
   <img src="https://img.shields.io/github/v/release/ika-rwth-aachen/tensorflow_cpp"/>
   <img src="https://img.shields.io/github/license/ika-rwth-aachen/tensorflow_cpp"/>
+  <a href="https://github.com/ika-rwth-aachen/tensorflow_cpp/actions/workflows/test.yml"><img src="https://github.com/ika-rwth-aachen/tensorflow_cpp/actions/workflows/test.yml/badge.svg"/></a>
   <a href="https://ika-rwth-aachen.github.io/tensorflow_cpp"><img src="https://github.com/ika-rwth-aachen/tensorflow_cpp/actions/workflows/doc.yml/badge.svg"/></a>
   <img src="https://img.shields.io/badge/ROS1-noetic-green"/>
   <img src="https://img.shields.io/github/stars/ika-rwth-aachen/tensorflow_cpp?style=social"/>

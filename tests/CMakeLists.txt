@@ -30,10 +30,10 @@ add_test(NAME test_printModelInfo_SavedModel  COMMAND loadModel ${SavedModelPath
 add_test(NAME test_printModelInfo_FrozenGraph COMMAND loadModel ${FrozenGraphPath})
 
 add_test(NAME test_getShapes_SavedModel  COMMAND getShapes ${SavedModelPath})
-add_test(NAME test_getShapes_FrozenGraph COMMAND getShapes ${FrozenGraphPath})
+# add_test(NAME test_getShapes_FrozenGraph COMMAND getShapes ${FrozenGraphPath})
 
 add_test(NAME test_getTypes_SavedModel  COMMAND getTypes ${SavedModelPath})
-add_test(NAME test_getTypes_FrozenGraph COMMAND getTypes ${FrozenGraphPath})
+# add_test(NAME test_getTypes_FrozenGraph COMMAND getTypes ${FrozenGraphPath})
 
 add_test(NAME test_runModel_0_SavedModel  COMMAND runModel ${SavedModelPath} ${MnistPath}/0.jpg)
 add_test(NAME test_runModel_1_SavedModel  COMMAND runModel ${SavedModelPath} ${MnistPath}/1.jpg)
