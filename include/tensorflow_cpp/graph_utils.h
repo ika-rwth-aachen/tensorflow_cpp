@@ -27,13 +27,13 @@ SOFTWARE.
 
 #pragma once
 
+#include <algorithm>
 #include <sstream>
 #include <stdexcept>
 #include <string>
 #include <vector>
 
 #include <tensorflow/core/platform/env.h>
-#include <tensorflow/tools/graph_transforms/transform_utils.h>
 #include <tensorflow_cpp/utils.h>
 
 
@@ -135,12 +135,16 @@ std::vector<std::string> getGraphInputNames(const tf::GraphDef& graph_def) {
 std::vector<std::string> getGraphOutputNames(const tf::GraphDef& graph_def) {
 
   std::vector<std::string> output_nodes;
-  std::map<std::string, std::vector<const tf::NodeDef*>> nodes2outputs;
-  tf::graph_transforms::MapNodesToOutputs(graph_def, &nodes2outputs);
+  std::vector<std::string> nodes_with_outputs;
   std::unordered_set<std::string> unlikely_output_ops = {"Const", "Assign",
                                                          "NoOp", "Placeholder"};
   for (const tf::NodeDef& node : graph_def.node()) {
-    if (nodes2outputs.count(node.name()) == 0 &&
+    for (const std::string& input_name : node.input())
+      nodes_with_outputs.push_back(input_name);
+  }
+  for (const tf::NodeDef& node : graph_def.node()) {
+    if (std::find(nodes_with_outputs.begin(), nodes_with_outputs.end(),
+                  node.name()) == nodes_with_outputs.end() &&
         unlikely_output_ops.count(node.op()) == 0)
       output_nodes.push_back(node.name());
   }
