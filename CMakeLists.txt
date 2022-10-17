@@ -222,13 +222,13 @@ target_link_libraries(${PROJECT_NAME} INTERFACE
 
 include(CMakePackageConfigHelpers)
 write_basic_package_version_file(
-  "${PROJECT_BINARY_DIR}/${PROJECT_NAME}_ConfigVersion.cmake"
+  "${PROJECT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake"
   VERSION 1.0.0
   COMPATIBILITY AnyNewerVersion
 )
 
 install(TARGETS ${PROJECT_NAME}
-  EXPORT ${PROJECT_NAME}_Targets
+  EXPORT ${PROJECT_NAME}Targets
   LIBRARY DESTINATION lib COMPONENT Runtime
   ARCHIVE DESTINATION lib COMPONENT Development
   RUNTIME DESTINATION bin COMPONENT Runtime
@@ -238,14 +238,14 @@ install(TARGETS ${PROJECT_NAME}
 
 include(CMakePackageConfigHelpers)
 configure_package_config_file(
-  "${PROJECT_SOURCE_DIR}/cmake/${PROJECT_NAME}_Config.cmake.in"
-  "${PROJECT_BINARY_DIR}/${PROJECT_NAME}_Config.cmake"
+  "${PROJECT_SOURCE_DIR}/cmake/${PROJECT_NAME}Config.cmake.in"
+  "${PROJECT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
   INSTALL_DESTINATION lib/cmake/${PROJECT_NAME}
 )
 
-install(EXPORT ${PROJECT_NAME}_Targets DESTINATION lib/cmake/${PROJECT_NAME})
-install(FILES "${PROJECT_BINARY_DIR}/${PROJECT_NAME}_ConfigVersion.cmake"
-              "${PROJECT_BINARY_DIR}/${PROJECT_NAME}_Config.cmake"
+install(EXPORT ${PROJECT_NAME}Targets DESTINATION lib/cmake/${PROJECT_NAME})
+install(FILES "${PROJECT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake"
+              "${PROJECT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
         DESTINATION lib/cmake/${PROJECT_NAME})
 install(DIRECTORY ${PROJECT_SOURCE_DIR}/include/ DESTINATION include)
 
