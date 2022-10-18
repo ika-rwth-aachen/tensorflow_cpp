@@ -175,8 +175,7 @@ In the meantime, you can try your luck at building the TensorFlow C++ API from s
     # ...
     add_executable(foo ...) # / add_library(foo ...)
     # ...
-    include_directories(foo ${tensorflow_cpp_INCLUDE_DIRS})
-    target_link_libraries(foo PRIVATE ${tensorflow_cpp_LIBRARIES})
+    target_link_libraries(foo tensorflow_cpp)
     ```
 
 ### ROS

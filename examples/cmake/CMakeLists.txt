@@ -5,5 +5,4 @@ find_package(tensorflow_cpp REQUIRED)
 
 add_executable(${PROJECT_NAME} printModelInfo.cpp)
 
-include_directories(${PROJECT_NAME})
 target_link_libraries(${PROJECT_NAME} tensorflow_cpp)
