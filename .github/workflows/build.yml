@@ -1,0 +1,29 @@
+name: Build
+
+on: push
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    container: rwthika/tensorflow-cc:latest
+    steps:
+      - name: Install build dependencies
+        run: |
+          apt update
+          apt install -y cmake git
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Build tensorflow_cpp
+        run: |
+          mkdir -p build
+          cd build
+          cmake ..
+          make install
+      - name: Build CMake example
+        run: |
+          cd examples/cmake
+          mkdir -p build
+          cd build
+          cmake ..
+          make
+          ./printModelInfo ../../models/saved_model
