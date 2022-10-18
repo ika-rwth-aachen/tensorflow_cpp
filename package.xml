@@ -2,7 +2,7 @@
 <package format="2">
 
   <name>tensorflow_cpp</name>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <description>Wrappers around the TensorFlow C++ API for easy usage in ROS</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->

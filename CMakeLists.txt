@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(tensorflow_cpp VERSION 1.0.0 LANGUAGES CXX)
+project(tensorflow_cpp VERSION 1.0.1 LANGUAGES CXX)
 
 find_package(TensorFlow REQUIRED)
 
@@ -223,7 +223,7 @@ target_link_libraries(${PROJECT_NAME} INTERFACE
 include(CMakePackageConfigHelpers)
 write_basic_package_version_file(
   "${PROJECT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake"
-  VERSION 1.0.0
+  VERSION 1.0.1
   COMPATIBILITY AnyNewerVersion
 )
 
