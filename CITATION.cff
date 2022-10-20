@@ -1,6 +1,7 @@
 cff-version: 1.2.0
 
 title: ika-rwth-aachen/tensorflow_cpp
+doi: 10.5281/zenodo.7227948
 type: software
 repository-code: "https://github.com/ika-rwth-aachen/tensorflow_cpp.git"
 authors:
