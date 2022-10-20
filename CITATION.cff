@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+
+title: ika-rwth-aachen/tensorflow_cpp
+type: software
+repository-code: "https://github.com/ika-rwth-aachen/tensorflow_cpp.git"
+authors:
+  - given-names: Lennart
+    family-names: Reiher
+    email: "lennart.reiher@rwth-aachen.de"
+    affiliation: "Institute for Automotive Engineering (ika), RWTH Aachen University"
+    orcid: 0000-0002-7309-164X
+  - given-names: Bastian
+    family-names: Lampe
+    email: "bastian.lampe@rwth-aachen.de"
+    affiliation: "Institute for Automotive Engineering (ika), RWTH Aachen University"
+    orcid: 0000-0002-4414-6947
+  - given-names: Raphael
+    family-names: van Kempen
+    email: "raphael.vankempen@ika.rwth-aachen.de"
+    affiliation: "Institute for Automotive Engineering (ika), RWTH Aachen University"
+    orcid: 0000-0001-5017-7494
