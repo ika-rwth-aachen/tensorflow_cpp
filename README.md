@@ -7,10 +7,16 @@
   <a href="https://github.com/ika-rwth-aachen/tensorflow_cpp/actions/workflows/test.yml"><img src="https://github.com/ika-rwth-aachen/tensorflow_cpp/actions/workflows/test.yml/badge.svg"/></a>
   <a href="https://ika-rwth-aachen.github.io/tensorflow_cpp"><img src="https://github.com/ika-rwth-aachen/tensorflow_cpp/actions/workflows/doc.yml/badge.svg"/></a>
   <img src="https://img.shields.io/badge/ROS1-noetic-green"/>
-  <img src="https://img.shields.io/github/stars/ika-rwth-aachen/tensorflow_cpp?style=social"/>
+  <a href="https://github.com/ika-rwth-aachen/tensorflow_cpp"><img src="https://img.shields.io/github/stars/ika-rwth-aachen/tensorflow_cpp?style=social"/></a>
 </p>
 
 *tensorflow_cpp* is a header-only library that provides helpful wrappers around the [TensorFlow C++ API](https://www.tensorflow.org/api_docs/cc), allowing you to **easily load, inspect, and run saved models and frozen graphs in C++**. The library is easy to integrate into CMake projects, but is also available as a [ROS](https://www.ros.org/) package.
+
+If you want to use the TensorFlow C++ API to load, inspect, and run saved models and frozen graphs in C++, we suggest that you also check out our helper library tensorflow_cpp. 
+
+If you are looking for an easy way to install the TensorFlow C++ API, we suggest that you also check out our repository [*libtensorflow_cc*](https://github.com/ika-rwth-aachen/libtensorflow_cc). There, we provide a pre-built library and a Docker image for easy installation and usage of the TensorFlow C++ API. <a href="https://github.com/ika-rwth-aachen/libtensorflow_cc"><img src="https://img.shields.io/github/stars/ika-rwth-aachen/libtensorflow_cc?style=social"/></a>
+
+---
 
 - [Examples](#examples)
 - [Installation](#installation)
@@ -142,12 +148,18 @@ tensorflow::Tensor output_tensor_2& = outputs[kModelOutputName2];
 
 ### Dependencies
 
-*tensorflow_cpp* is a wrapper around the official [TensorFlow C++ API](https://www.tensorflow.org/api_docs/cc). The C++ API including `libtensorflow_cc.so` must be installed on the system. Unfortunately, TensorFlow does not provide proper instructions for building the C++ API from source.
+*tensorflow_cpp* is a wrapper around the official [TensorFlow C++ API](https://www.tensorflow.org/api_docs/cc). The C++ API including `libtensorflow_cc.so` must be installed on the system.
 
-> **Note**
-> We hope to soon release a pre-built TensorFlow C++ API package for easy installation.
+Instead of having to build the C++ API from source yourself, we recommend to check out our repository [*libtensorflow_cc*](https://github.com/ika-rwth-aachen/libtensorflow_cc). There, we provide a pre-built library and a Docker image for easy installation and usage of the TensorFlow C++ API.
 
-In the meantime, you can try your luck at building the TensorFlow C++ API from source yourself. Once the library and headers are installed, you can use the provided [`TensorFlowConfig.cmake`](cmake/TensorFlowConfig.cmake) to enable the `find_package(TensorFlow REQUIRED)` call in *tensorflow_cpp's* [`CMakeLists.txt`](CMakeLists.txt).
+Installation is as easy as the following. Head over to [*libtensorflow_cc*](https://github.com/ika-rwth-aachen/libtensorflow_cc) for more details.
+```
+wget https://github.com/ika-rwth-aachen/libtensorflow_cc/releases/download/v2.9.2/libtensorflow-cc_2.9.2.deb
+sudo dpkg -i libtensorflow-cc_2.9.2.deb
+ldconfig
+```
+
+If you have already installed the C++ API another way, you can use the provided [`TensorFlowConfig.cmake`](cmake/TensorFlowConfig.cmake) to enable the `find_package(TensorFlow REQUIRED)` call in *tensorflow_cpp's* [`CMakeLists.txt`](CMakeLists.txt).
 
 ### CMake
 
