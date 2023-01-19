@@ -19,13 +19,16 @@ If you are looking for an easy way to install the TensorFlow C++ API, we suggest
 
 ---
 
-- [Examples](#examples)
-- [Installation](#installation)
-  - [Dependencies](#dependencies)
-  - [CMake](#cmake)
-  - [ROS](#ros)
-- [Testing](#testing)
-- [Documentation](#documentation)
+- [tensorflow\_cpp](#tensorflow_cpp)
+  - [Examples](#examples)
+  - [Installation](#installation)
+    - [Dependencies](#dependencies)
+    - [CMake](#cmake)
+    - [ROS](#ros)
+  - [Testing](#testing)
+  - [Documentation](#documentation)
+  - [Acknowledgements](#acknowledgements)
+  - [Notice](#notice)
 
 
 ## Examples
@@ -155,8 +158,9 @@ Instead of having to build the C++ API from source yourself, we recommend to che
 
 Installation is as easy as the following. Head over to [*libtensorflow_cc*](https://github.com/ika-rwth-aachen/libtensorflow_cc) for more details.
 ```
-wget https://github.com/ika-rwth-aachen/libtensorflow_cc/releases/download/v2.9.2/libtensorflow-cc_2.9.2.deb
-sudo dpkg -i libtensorflow-cc_2.9.2.deb
+ARCH=$(dpkg --print-architecture)
+wget https://github.com/ika-rwth-aachen/libtensorflow_cc/releases/download/v2.9.2/libtensorflow-cc_2.9.2-gpu_${ARCH}.deb
+sudo dpkg -i libtensorflow-cc_2.9.2-gpu_${ARCH}.deb
 ldconfig
 ```
 
