@@ -8,10 +8,11 @@
   <a href="https://github.com/ika-rwth-aachen/tensorflow_cpp/actions/workflows/test.yml"><img src="https://github.com/ika-rwth-aachen/tensorflow_cpp/actions/workflows/test.yml/badge.svg"/></a>
   <a href="https://ika-rwth-aachen.github.io/tensorflow_cpp"><img src="https://github.com/ika-rwth-aachen/tensorflow_cpp/actions/workflows/doc.yml/badge.svg"/></a>
   <img src="https://img.shields.io/badge/ROS1-noetic-green"/>
+  <img src="https://img.shields.io/badge/ROS2-humble-green"/>
   <a href="https://github.com/ika-rwth-aachen/tensorflow_cpp"><img src="https://img.shields.io/github/stars/ika-rwth-aachen/tensorflow_cpp?style=social"/></a>
 </p>
 
-*tensorflow_cpp* is a header-only library that provides helpful wrappers around the [TensorFlow C++ API](https://www.tensorflow.org/api_docs/cc), allowing you to **easily load, inspect, and run saved models and frozen graphs in C++**. The library is easy to integrate into CMake projects, but is also available as a [ROS](https://www.ros.org/) package.
+*tensorflow_cpp* is a header-only library that provides helpful wrappers around the [TensorFlow C++ API](https://www.tensorflow.org/api_docs/cc), allowing you to **easily load, inspect, and run saved models and frozen graphs in C++**. The library is easy to integrate into CMake projects, but is also available as a [ROS and ROS2](https://www.ros.org/) package.
 
 If you want to use the TensorFlow C++ API to load, inspect, and run saved models and frozen graphs in C++, we suggest that you also check out our helper library tensorflow_cpp. 
 
@@ -19,13 +20,16 @@ If you are looking for an easy way to install the TensorFlow C++ API, we suggest
 
 ---
 
-- [Examples](#examples)
-- [Installation](#installation)
-  - [Dependencies](#dependencies)
-  - [CMake](#cmake)
-  - [ROS](#ros)
-- [Testing](#testing)
-- [Documentation](#documentation)
+- [tensorflow\_cpp](#tensorflow_cpp)
+  - [Examples](#examples)
+  - [Installation](#installation)
+    - [Dependencies](#dependencies)
+    - [CMake](#cmake)
+    - [ROS/ROS2](#rosros2)
+  - [Testing](#testing)
+  - [Documentation](#documentation)
+  - [Acknowledgements](#acknowledgements)
+  - [Notice](#notice)
 
 
 ## Examples
@@ -155,8 +159,9 @@ Instead of having to build the C++ API from source yourself, we recommend to che
 
 Installation is as easy as the following. Head over to [*libtensorflow_cc*](https://github.com/ika-rwth-aachen/libtensorflow_cc) for more details.
 ```
-wget https://github.com/ika-rwth-aachen/libtensorflow_cc/releases/download/v2.9.2/libtensorflow-cc_2.9.2.deb
-sudo dpkg -i libtensorflow-cc_2.9.2.deb
+ARCH=$(dpkg --print-architecture)
+wget https://github.com/ika-rwth-aachen/libtensorflow_cc/releases/download/v2.9.2/libtensorflow-cc_2.9.2-gpu_${ARCH}.deb
+sudo dpkg -i libtensorflow-cc_2.9.2-gpu_${ARCH}.deb
 ldconfig
 ```
 
@@ -192,16 +197,16 @@ If you have already installed the C++ API another way, you can use the provided 
     target_link_libraries(foo tensorflow_cpp)
     ```
 
-### ROS
+### ROS/ROS2
 
-1. Clone this repository into your ROS workspace.
+1. Clone this repository into your ROS/ROS2 workspace.
 
     ```bash
     git clone https://github.com/ika-rwth-aachen/tensorflow_cpp.git
     cd tensorflow_cpp
     ```
 
-1. In order to include *tensorflow_cpp* in a ROS package, specify the dependency in its `package.xml` and use `find_package()` in your package's `CMakeLists.txt`.
+1. In order to include *tensorflow_cpp* in a ROS/ROS2 package, specify the dependency in its `package.xml` and use `find_package()` in your package's `CMakeLists.txt`.
 
     ```xml
     <!-- package.xml -->
@@ -210,9 +215,15 @@ If you have already installed the C++ API another way, you can use the provided 
 
     ```cmake
     # CMakeLists.txt
+
+    # ROS
     find_package(catkin REQUIRED COMPONENTS
       tensorflow_cpp
     )
+
+    # ROS2
+    find_package(tensorflow_cpp REQUIRED)
+    ament_target_dependencies(<TARGET> tensorflow_cpp)
     ```
 
 
