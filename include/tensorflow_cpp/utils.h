@@ -49,7 +49,7 @@ namespace tf = tensorflow;
  *
  * @return  tf::SessionOptions                  session options
  */
-tf::SessionOptions makeSessionOptions(
+inline tf::SessionOptions makeSessionOptions(
   const bool allow_growth = true,
   const double per_process_gpu_memory_fraction = 0,
   const std::string& visible_device_list = "") {
@@ -75,9 +75,10 @@ tf::SessionOptions makeSessionOptions(
  *
  * @return  tf::Session*                        session
  */
-tf::Session* createSession(const bool allow_growth = true,
-                           const double per_process_gpu_memory_fraction = 0,
-                           const std::string& visible_device_list = "") {
+inline tf::Session* createSession(
+  const bool allow_growth = true,
+  const double per_process_gpu_memory_fraction = 0,
+  const std::string& visible_device_list = "") {
 
   tf::Session* session;
   tf::SessionOptions options = makeSessionOptions(
