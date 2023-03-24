@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(tensorflow_cpp VERSION 1.0.2 LANGUAGES CXX)
+project(tensorflow_cpp VERSION 1.0.3 LANGUAGES CXX)
 
 find_package(ros_environment QUIET)
 if(ros_environment_FOUND)
