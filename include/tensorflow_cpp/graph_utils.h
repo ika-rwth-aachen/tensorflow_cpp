@@ -50,7 +50,7 @@ namespace tf = tensorflow;
  *
  * @return  tf::GraphDef     graph
  */
-tf::GraphDef loadFrozenGraph(const std::string& file) {
+inline tf::GraphDef loadFrozenGraph(const std::string& file) {
 
   tf::GraphDef graph_def;
   tf::Status status = tf::ReadBinaryProto(tf::Env::Default(), file, &graph_def);
@@ -71,7 +71,8 @@ tf::GraphDef loadFrozenGraph(const std::string& file) {
  * @return  true            if operation succeeded
  * @return  false           if operation failed
  */
-bool loadGraphIntoSession(tf::Session* session, const tf::GraphDef& graph_def) {
+inline bool loadGraphIntoSession(tf::Session* session,
+                                 const tf::GraphDef& graph_def) {
 
   tf::Status status = session->Create(graph_def);
   if (!status.ok())
@@ -93,7 +94,7 @@ bool loadGraphIntoSession(tf::Session* session, const tf::GraphDef& graph_def) {
  *
  * @return  tf::Session*                        session
  */
-tf::Session* loadFrozenGraphIntoNewSession(
+inline tf::Session* loadFrozenGraphIntoNewSession(
   const std::string& file, const bool allow_growth = true,
   const double per_process_gpu_memory_fraction = 0,
   const std::string& visible_device_list = "") {
@@ -114,7 +115,8 @@ tf::Session* loadFrozenGraphIntoNewSession(
  *
  * @return  std::vector<std::string>     list of input node names
  */
-std::vector<std::string> getGraphInputNames(const tf::GraphDef& graph_def) {
+inline std::vector<std::string> getGraphInputNames(
+  const tf::GraphDef& graph_def) {
 
   std::vector<std::string> input_nodes;
   for (const tf::NodeDef& node : graph_def.node()) {
@@ -132,7 +134,8 @@ std::vector<std::string> getGraphInputNames(const tf::GraphDef& graph_def) {
  *
  * @return  std::vector<std::string>     list of output node names
  */
-std::vector<std::string> getGraphOutputNames(const tf::GraphDef& graph_def) {
+inline std::vector<std::string> getGraphOutputNames(
+  const tf::GraphDef& graph_def) {
 
   std::vector<std::string> output_nodes;
   std::vector<std::string> nodes_with_outputs;
@@ -161,8 +164,8 @@ std::vector<std::string> getGraphOutputNames(const tf::GraphDef& graph_def) {
  *
  * @return  std::vector<int>     node shape
  */
-std::vector<int> getGraphNodeShape(const tf::GraphDef& graph_def,
-                                   const std::string& node_name) {
+inline std::vector<int> getGraphNodeShape(const tf::GraphDef& graph_def,
+                                          const std::string& node_name) {
 
   std::vector<int> node_shape;
   for (const tf::NodeDef& node : graph_def.node()) {
@@ -187,8 +190,8 @@ std::vector<int> getGraphNodeShape(const tf::GraphDef& graph_def,
  *
  * @return  tf::DataType     node datatype
  */
-tf::DataType getGraphNodeType(const tf::GraphDef& graph_def,
-                              const std::string& node_name) {
+inline tf::DataType getGraphNodeType(const tf::GraphDef& graph_def,
+                                     const std::string& node_name) {
 
   tf::DataType type = tf::DT_INVALID;
   for (const tf::NodeDef& node : graph_def.node()) {
@@ -214,7 +217,7 @@ tf::DataType getGraphNodeType(const tf::GraphDef& graph_def,
  *
  * @return  std::string   formatted info message
  */
-std::string getGraphInfoString(const tf::GraphDef& graph_def) {
+inline std::string getGraphInfoString(const tf::GraphDef& graph_def) {
 
   std::stringstream ss;
   ss << "FrozenGraph Info:" << std::endl;

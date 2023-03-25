@@ -54,7 +54,7 @@ namespace tf = tensorflow;
  *
  * @return  tf::SavedModelBundleLite            SavedModel
  */
-tf::SavedModelBundleLite loadSavedModel(
+inline tf::SavedModelBundleLite loadSavedModel(
   const std::string& dir, const bool allow_growth = true,
   const double per_process_gpu_memory_fraction = 0,
   const std::string& visible_device_list = "") {
@@ -82,7 +82,7 @@ tf::SavedModelBundleLite loadSavedModel(
  *
  * @return  tf::Session*                        session
  */
-tf::Session* loadSavedModelIntoNewSession(
+inline tf::Session* loadSavedModelIntoNewSession(
   const std::string& dir, const bool allow_growth = true,
   const double per_process_gpu_memory_fraction = 0,
   const std::string& visible_device_list = "") {
@@ -102,7 +102,7 @@ tf::Session* loadSavedModelIntoNewSession(
  *
  * @return  tf::Session*  session
  */
-tf::Session* getSessionFromSavedModel(
+inline tf::Session* getSessionFromSavedModel(
   const tf::SavedModelBundleLite& saved_model) {
 
   return saved_model.GetSession();
@@ -121,7 +121,7 @@ tf::Session* getSessionFromSavedModel(
  *
  * @return  std::string     node name
  */
-std::string getSavedModelNodeByLayerName(
+inline std::string getSavedModelNodeByLayerName(
   const tf::SavedModelBundleLite& saved_model, const std::string& layer_name,
   const std::string& signature = "serving_default") {
 
@@ -156,7 +156,7 @@ std::string getSavedModelNodeByLayerName(
  *
  * @return  std::string     layer name
  */
-std::string getSavedModelLayerByNodeName(
+inline std::string getSavedModelLayerByNodeName(
   const tf::SavedModelBundleLite& saved_model, const std::string& node_name,
   const std::string& signature = "serving_default") {
 
@@ -195,7 +195,7 @@ std::string getSavedModelLayerByNodeName(
  *
  * @return  std::vector<std::string>     input names
  */
-std::vector<std::string> getSavedModelInputNames(
+inline std::vector<std::string> getSavedModelInputNames(
   const tf::SavedModelBundleLite& saved_model, const bool layer_names = false,
   const std::string& signature = "serving_default") {
 
@@ -236,7 +236,7 @@ std::vector<std::string> getSavedModelInputNames(
  *
  * @return  std::vector<std::string>     output names
  */
-std::vector<std::string> getSavedModelOutputNames(
+inline std::vector<std::string> getSavedModelOutputNames(
   const tf::SavedModelBundleLite& saved_model, const bool layer_names = false,
   const std::string& signature = "serving_default") {
 
@@ -270,7 +270,7 @@ std::vector<std::string> getSavedModelOutputNames(
  *
  * @return  std::vector<int>             node shape
  */
-std::vector<int> getSavedModelNodeShape(
+inline std::vector<int> getSavedModelNodeShape(
   const tf::SavedModelBundleLite& saved_model, const std::string& node_name,
   const std::string& signature = "serving_default") {
 
@@ -304,7 +304,7 @@ std::vector<int> getSavedModelNodeShape(
  *
  * @return  tf::DataType     node datatype
  */
-tf::DataType getSavedModelNodeType(
+inline tf::DataType getSavedModelNodeType(
   const tf::SavedModelBundleLite& saved_model, const std::string& node_name,
   const std::string& signature = "serving_default") {
 
@@ -337,7 +337,7 @@ tf::DataType getSavedModelNodeType(
  *
  * @return  std::string   formatted info message
  */
-std::string getSavedModelInfoString(
+inline std::string getSavedModelInfoString(
   const tf::SavedModelBundleLite& saved_model) {
 
   std::stringstream ss;
