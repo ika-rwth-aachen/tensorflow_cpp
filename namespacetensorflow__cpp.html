@@ -22,7 +22,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">tensorflow_cpp<span id="projectnumber">&#160;1.0.3</span>
+   <div id="projectname">tensorflow_cpp<span id="projectnumber">&#160;1.0.4</span>
    </div>
   </td>
  </tr>
@@ -252,47 +252,47 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>std::string formatted info message </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="graph__utils_8h_source.html#l00220">220</a> of file <a class="el" href="graph__utils_8h_source.html">graph_utils.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  220</span>                                                                 {</div>
-<div class="line"><span class="lineno">  221</span> </div>
-<div class="line"><span class="lineno">  222</span>  std::stringstream ss;</div>
-<div class="line"><span class="lineno">  223</span>  ss &lt;&lt; <span class="stringliteral">&quot;FrozenGraph Info:&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  224</span> </div>
-<div class="line"><span class="lineno">  225</span>  <span class="keyword">const</span> std::vector&lt;std::string&gt; inputs = <a class="code hl_function" href="namespacetensorflow__cpp.html#ab6dd34d7c2b19d453236c153e7094648">getGraphInputNames</a>(graph_def);</div>
-<div class="line"><span class="lineno">  226</span>  <span class="keyword">const</span> std::vector&lt;std::string&gt; outputs = <a class="code hl_function" href="namespacetensorflow__cpp.html#a06e613c4730babc25ecb7a2527d0dd12">getGraphOutputNames</a>(graph_def);</div>
-<div class="line"><span class="lineno">  227</span> </div>
-<div class="line"><span class="lineno">  228</span>  ss &lt;&lt; <span class="stringliteral">&quot;Inputs: &quot;</span> &lt;&lt; inputs.size() &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  229</span>  <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; name : inputs) {</div>
-<div class="line"><span class="lineno">  230</span>    <span class="keyword">const</span> <span class="keyword">auto</span>&amp; shape = <a class="code hl_function" href="namespacetensorflow__cpp.html#a8ed9a2136d3b313fa2a4797247e15343">getGraphNodeShape</a>(graph_def, name);</div>
-<div class="line"><span class="lineno">  231</span>    <span class="keyword">const</span> <span class="keyword">auto</span>&amp; dtype = <a class="code hl_function" href="namespacetensorflow__cpp.html#af63aa2c1aac0a7d28b6cdea2d12f03d0">getGraphNodeType</a>(graph_def, name);</div>
-<div class="line"><span class="lineno">  232</span>    ss &lt;&lt; <span class="stringliteral">&quot;  &quot;</span> &lt;&lt; name &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  233</span>    ss &lt;&lt; <span class="stringliteral">&quot;    Shape: [ &quot;</span>;</div>
-<div class="line"><span class="lineno">  234</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> d = 0; d &lt; shape.size(); d++) {</div>
-<div class="line"><span class="lineno">  235</span>      ss &lt;&lt; shape[d] &lt;&lt; <span class="stringliteral">&quot;, &quot;</span>;</div>
-<div class="line"><span class="lineno">  236</span>    }</div>
-<div class="line"><span class="lineno">  237</span>    ss &lt;&lt; <span class="stringliteral">&quot;]&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  238</span>    ss &lt;&lt; <span class="stringliteral">&quot;    DataType: &quot;</span> &lt;&lt; tf::DataTypeString(dtype) &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  239</span>  }</div>
-<div class="line"><span class="lineno">  240</span> </div>
-<div class="line"><span class="lineno">  241</span>  ss &lt;&lt; <span class="stringliteral">&quot;Outputs: &quot;</span> &lt;&lt; outputs.size() &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  242</span>  <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; name : outputs) {</div>
-<div class="line"><span class="lineno">  243</span>    <span class="keyword">const</span> <span class="keyword">auto</span>&amp; shape = <a class="code hl_function" href="namespacetensorflow__cpp.html#a8ed9a2136d3b313fa2a4797247e15343">getGraphNodeShape</a>(graph_def, name);</div>
-<div class="line"><span class="lineno">  244</span>    <span class="keyword">const</span> <span class="keyword">auto</span>&amp; dtype = <a class="code hl_function" href="namespacetensorflow__cpp.html#af63aa2c1aac0a7d28b6cdea2d12f03d0">getGraphNodeType</a>(graph_def, name);</div>
-<div class="line"><span class="lineno">  245</span>    ss &lt;&lt; <span class="stringliteral">&quot;  &quot;</span> &lt;&lt; name &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  246</span>    ss &lt;&lt; <span class="stringliteral">&quot;    Shape: [ &quot;</span>;</div>
-<div class="line"><span class="lineno">  247</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> d = 0; d &lt; shape.size(); d++) {</div>
-<div class="line"><span class="lineno">  248</span>      ss &lt;&lt; shape[d] &lt;&lt; <span class="stringliteral">&quot;, &quot;</span>;</div>
-<div class="line"><span class="lineno">  249</span>    }</div>
-<div class="line"><span class="lineno">  250</span>    ss &lt;&lt; <span class="stringliteral">&quot;]&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  251</span>    ss &lt;&lt; <span class="stringliteral">&quot;    DataType: &quot;</span> &lt;&lt; tf::DataTypeString(dtype) &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  252</span>  }</div>
-<div class="line"><span class="lineno">  253</span> </div>
-<div class="line"><span class="lineno">  254</span>  <span class="keywordflow">return</span> ss.str();</div>
-<div class="line"><span class="lineno">  255</span>}</div>
+<p class="definition">Definition at line <a class="el" href="graph__utils_8h_source.html#l00221">221</a> of file <a class="el" href="graph__utils_8h_source.html">graph_utils.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  221</span>                                                                 {</div>
+<div class="line"><span class="lineno">  222</span> </div>
+<div class="line"><span class="lineno">  223</span>  std::stringstream ss;</div>
+<div class="line"><span class="lineno">  224</span>  ss &lt;&lt; <span class="stringliteral">&quot;FrozenGraph Info:&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  225</span> </div>
+<div class="line"><span class="lineno">  226</span>  <span class="keyword">const</span> std::vector&lt;std::string&gt; inputs = <a class="code hl_function" href="namespacetensorflow__cpp.html#ab6dd34d7c2b19d453236c153e7094648">getGraphInputNames</a>(graph_def);</div>
+<div class="line"><span class="lineno">  227</span>  <span class="keyword">const</span> std::vector&lt;std::string&gt; outputs = <a class="code hl_function" href="namespacetensorflow__cpp.html#a06e613c4730babc25ecb7a2527d0dd12">getGraphOutputNames</a>(graph_def);</div>
+<div class="line"><span class="lineno">  228</span> </div>
+<div class="line"><span class="lineno">  229</span>  ss &lt;&lt; <span class="stringliteral">&quot;Inputs: &quot;</span> &lt;&lt; inputs.size() &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  230</span>  <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; name : inputs) {</div>
+<div class="line"><span class="lineno">  231</span>    <span class="keyword">const</span> <span class="keyword">auto</span>&amp; shape = <a class="code hl_function" href="namespacetensorflow__cpp.html#a8ed9a2136d3b313fa2a4797247e15343">getGraphNodeShape</a>(graph_def, name);</div>
+<div class="line"><span class="lineno">  232</span>    <span class="keyword">const</span> <span class="keyword">auto</span>&amp; dtype = <a class="code hl_function" href="namespacetensorflow__cpp.html#af63aa2c1aac0a7d28b6cdea2d12f03d0">getGraphNodeType</a>(graph_def, name);</div>
+<div class="line"><span class="lineno">  233</span>    ss &lt;&lt; <span class="stringliteral">&quot;  &quot;</span> &lt;&lt; name &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  234</span>    ss &lt;&lt; <span class="stringliteral">&quot;    Shape: [ &quot;</span>;</div>
+<div class="line"><span class="lineno">  235</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> d = 0; d &lt; shape.size(); d++) {</div>
+<div class="line"><span class="lineno">  236</span>      ss &lt;&lt; shape[d] &lt;&lt; <span class="stringliteral">&quot;, &quot;</span>;</div>
+<div class="line"><span class="lineno">  237</span>    }</div>
+<div class="line"><span class="lineno">  238</span>    ss &lt;&lt; <span class="stringliteral">&quot;]&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  239</span>    ss &lt;&lt; <span class="stringliteral">&quot;    DataType: &quot;</span> &lt;&lt; tf::DataTypeString(dtype) &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  240</span>  }</div>
+<div class="line"><span class="lineno">  241</span> </div>
+<div class="line"><span class="lineno">  242</span>  ss &lt;&lt; <span class="stringliteral">&quot;Outputs: &quot;</span> &lt;&lt; outputs.size() &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  243</span>  <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; name : outputs) {</div>
+<div class="line"><span class="lineno">  244</span>    <span class="keyword">const</span> <span class="keyword">auto</span>&amp; shape = <a class="code hl_function" href="namespacetensorflow__cpp.html#a8ed9a2136d3b313fa2a4797247e15343">getGraphNodeShape</a>(graph_def, name);</div>
+<div class="line"><span class="lineno">  245</span>    <span class="keyword">const</span> <span class="keyword">auto</span>&amp; dtype = <a class="code hl_function" href="namespacetensorflow__cpp.html#af63aa2c1aac0a7d28b6cdea2d12f03d0">getGraphNodeType</a>(graph_def, name);</div>
+<div class="line"><span class="lineno">  246</span>    ss &lt;&lt; <span class="stringliteral">&quot;  &quot;</span> &lt;&lt; name &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  247</span>    ss &lt;&lt; <span class="stringliteral">&quot;    Shape: [ &quot;</span>;</div>
+<div class="line"><span class="lineno">  248</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> d = 0; d &lt; shape.size(); d++) {</div>
+<div class="line"><span class="lineno">  249</span>      ss &lt;&lt; shape[d] &lt;&lt; <span class="stringliteral">&quot;, &quot;</span>;</div>
+<div class="line"><span class="lineno">  250</span>    }</div>
+<div class="line"><span class="lineno">  251</span>    ss &lt;&lt; <span class="stringliteral">&quot;]&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  252</span>    ss &lt;&lt; <span class="stringliteral">&quot;    DataType: &quot;</span> &lt;&lt; tf::DataTypeString(dtype) &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  253</span>  }</div>
+<div class="line"><span class="lineno">  254</span> </div>
+<div class="line"><span class="lineno">  255</span>  <span class="keywordflow">return</span> ss.str();</div>
+<div class="line"><span class="lineno">  256</span>}</div>
 <div class="ttc" id="anamespacetensorflow__cpp_html_a06e613c4730babc25ecb7a2527d0dd12"><div class="ttname"><a href="namespacetensorflow__cpp.html#a06e613c4730babc25ecb7a2527d0dd12">tensorflow_cpp::getGraphOutputNames</a></div><div class="ttdeci">std::vector&lt; std::string &gt; getGraphOutputNames(const tf::GraphDef &amp;graph_def)</div><div class="ttdoc">Determines the names of all graph output nodes.</div><div class="ttdef"><b>Definition:</b> <a href="graph__utils_8h_source.html#l00137">graph_utils.h:137</a></div></div>
-<div class="ttc" id="anamespacetensorflow__cpp_html_a8ed9a2136d3b313fa2a4797247e15343"><div class="ttname"><a href="namespacetensorflow__cpp.html#a8ed9a2136d3b313fa2a4797247e15343">tensorflow_cpp::getGraphNodeShape</a></div><div class="ttdeci">std::vector&lt; int &gt; getGraphNodeShape(const tf::GraphDef &amp;graph_def, const std::string &amp;node_name)</div><div class="ttdoc">Determines the shape of a given graph node.</div><div class="ttdef"><b>Definition:</b> <a href="graph__utils_8h_source.html#l00167">graph_utils.h:167</a></div></div>
+<div class="ttc" id="anamespacetensorflow__cpp_html_a8ed9a2136d3b313fa2a4797247e15343"><div class="ttname"><a href="namespacetensorflow__cpp.html#a8ed9a2136d3b313fa2a4797247e15343">tensorflow_cpp::getGraphNodeShape</a></div><div class="ttdeci">std::vector&lt; int &gt; getGraphNodeShape(const tf::GraphDef &amp;graph_def, const std::string &amp;node_name)</div><div class="ttdoc">Determines the shape of a given graph node.</div><div class="ttdef"><b>Definition:</b> <a href="graph__utils_8h_source.html#l00168">graph_utils.h:168</a></div></div>
 <div class="ttc" id="anamespacetensorflow__cpp_html_ab6dd34d7c2b19d453236c153e7094648"><div class="ttname"><a href="namespacetensorflow__cpp.html#ab6dd34d7c2b19d453236c153e7094648">tensorflow_cpp::getGraphInputNames</a></div><div class="ttdeci">std::vector&lt; std::string &gt; getGraphInputNames(const tf::GraphDef &amp;graph_def)</div><div class="ttdoc">Determines the names of all graph input nodes.</div><div class="ttdef"><b>Definition:</b> <a href="graph__utils_8h_source.html#l00118">graph_utils.h:118</a></div></div>
-<div class="ttc" id="anamespacetensorflow__cpp_html_af63aa2c1aac0a7d28b6cdea2d12f03d0"><div class="ttname"><a href="namespacetensorflow__cpp.html#af63aa2c1aac0a7d28b6cdea2d12f03d0">tensorflow_cpp::getGraphNodeType</a></div><div class="ttdeci">tf::DataType getGraphNodeType(const tf::GraphDef &amp;graph_def, const std::string &amp;node_name)</div><div class="ttdoc">Determines the datatype of a given graph node.</div><div class="ttdef"><b>Definition:</b> <a href="graph__utils_8h_source.html#l00193">graph_utils.h:193</a></div></div>
+<div class="ttc" id="anamespacetensorflow__cpp_html_af63aa2c1aac0a7d28b6cdea2d12f03d0"><div class="ttname"><a href="namespacetensorflow__cpp.html#af63aa2c1aac0a7d28b6cdea2d12f03d0">tensorflow_cpp::getGraphNodeType</a></div><div class="ttdeci">tf::DataType getGraphNodeType(const tf::GraphDef &amp;graph_def, const std::string &amp;node_name)</div><div class="ttdoc">Determines the datatype of a given graph node.</div><div class="ttdef"><b>Definition:</b> <a href="graph__utils_8h_source.html#l00194">graph_utils.h:194</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -386,22 +386,22 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>std::vector&lt;int&gt; node shape </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="graph__utils_8h_source.html#l00167">167</a> of file <a class="el" href="graph__utils_8h_source.html">graph_utils.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  168</span>                                                                      {</div>
-<div class="line"><span class="lineno">  169</span> </div>
-<div class="line"><span class="lineno">  170</span>  std::vector&lt;int&gt; node_shape;</div>
-<div class="line"><span class="lineno">  171</span>  <span class="keywordflow">for</span> (<span class="keyword">const</span> tf::NodeDef&amp; node : graph_def.node()) {</div>
-<div class="line"><span class="lineno">  172</span>    <span class="keywordflow">if</span> (node.name() == node_name) {</div>
-<div class="line"><span class="lineno">  173</span>      <span class="keywordflow">if</span> (node.attr().count(<span class="stringliteral">&quot;shape&quot;</span>) == 0) <span class="keywordflow">return</span> node_shape;</div>
-<div class="line"><span class="lineno">  174</span>      <span class="keyword">auto</span> shape = node.attr().at(<span class="stringliteral">&quot;shape&quot;</span>).shape();</div>
-<div class="line"><span class="lineno">  175</span>      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> d = 0; d &lt; shape.dim_size(); d++)</div>
-<div class="line"><span class="lineno">  176</span>        node_shape.push_back(shape.dim(d).size());</div>
-<div class="line"><span class="lineno">  177</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  178</span>    }</div>
-<div class="line"><span class="lineno">  179</span>  }</div>
-<div class="line"><span class="lineno">  180</span> </div>
-<div class="line"><span class="lineno">  181</span>  <span class="keywordflow">return</span> node_shape;</div>
-<div class="line"><span class="lineno">  182</span>}</div>
+<p class="definition">Definition at line <a class="el" href="graph__utils_8h_source.html#l00168">168</a> of file <a class="el" href="graph__utils_8h_source.html">graph_utils.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  169</span>                                                                      {</div>
+<div class="line"><span class="lineno">  170</span> </div>
+<div class="line"><span class="lineno">  171</span>  std::vector&lt;int&gt; node_shape;</div>
+<div class="line"><span class="lineno">  172</span>  <span class="keywordflow">for</span> (<span class="keyword">const</span> tf::NodeDef&amp; node : graph_def.node()) {</div>
+<div class="line"><span class="lineno">  173</span>    <span class="keywordflow">if</span> (node.name() == node_name) {</div>
+<div class="line"><span class="lineno">  174</span>      <span class="keywordflow">if</span> (node.attr().count(<span class="stringliteral">&quot;shape&quot;</span>) == 0) <span class="keywordflow">return</span> node_shape;</div>
+<div class="line"><span class="lineno">  175</span>      <span class="keyword">auto</span> shape = node.attr().at(<span class="stringliteral">&quot;shape&quot;</span>).shape();</div>
+<div class="line"><span class="lineno">  176</span>      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> d = 0; d &lt; shape.dim_size(); d++)</div>
+<div class="line"><span class="lineno">  177</span>        node_shape.push_back(shape.dim(d).size());</div>
+<div class="line"><span class="lineno">  178</span>      <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  179</span>    }</div>
+<div class="line"><span class="lineno">  180</span>  }</div>
+<div class="line"><span class="lineno">  181</span> </div>
+<div class="line"><span class="lineno">  182</span>  <span class="keywordflow">return</span> node_shape;</div>
+<div class="line"><span class="lineno">  183</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -449,19 +449,19 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>tf::DataType node datatype </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="graph__utils_8h_source.html#l00193">193</a> of file <a class="el" href="graph__utils_8h_source.html">graph_utils.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  194</span>                                                                 {</div>
-<div class="line"><span class="lineno">  195</span> </div>
-<div class="line"><span class="lineno">  196</span>  tf::DataType type = tf::DT_INVALID;</div>
-<div class="line"><span class="lineno">  197</span>  <span class="keywordflow">for</span> (<span class="keyword">const</span> tf::NodeDef&amp; node : graph_def.node()) {</div>
-<div class="line"><span class="lineno">  198</span>    <span class="keywordflow">if</span> (node.name() == node_name) {</div>
-<div class="line"><span class="lineno">  199</span>      <span class="keywordflow">if</span> (node.attr().count(<span class="stringliteral">&quot;dtype&quot;</span>) == 0) <span class="keywordflow">return</span> type;</div>
-<div class="line"><span class="lineno">  200</span>      type = node.attr().at(<span class="stringliteral">&quot;dtype&quot;</span>).type();</div>
-<div class="line"><span class="lineno">  201</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  202</span>    }</div>
-<div class="line"><span class="lineno">  203</span>  }</div>
-<div class="line"><span class="lineno">  204</span>  <span class="keywordflow">return</span> type;</div>
-<div class="line"><span class="lineno">  205</span>}</div>
+<p class="definition">Definition at line <a class="el" href="graph__utils_8h_source.html#l00194">194</a> of file <a class="el" href="graph__utils_8h_source.html">graph_utils.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  195</span>                                                                 {</div>
+<div class="line"><span class="lineno">  196</span> </div>
+<div class="line"><span class="lineno">  197</span>  tf::DataType type = tf::DT_INVALID;</div>
+<div class="line"><span class="lineno">  198</span>  <span class="keywordflow">for</span> (<span class="keyword">const</span> tf::NodeDef&amp; node : graph_def.node()) {</div>
+<div class="line"><span class="lineno">  199</span>    <span class="keywordflow">if</span> (node.name() == node_name) {</div>
+<div class="line"><span class="lineno">  200</span>      <span class="keywordflow">if</span> (node.attr().count(<span class="stringliteral">&quot;dtype&quot;</span>) == 0) <span class="keywordflow">return</span> type;</div>
+<div class="line"><span class="lineno">  201</span>      type = node.attr().at(<span class="stringliteral">&quot;dtype&quot;</span>).type();</div>
+<div class="line"><span class="lineno">  202</span>      <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  203</span>    }</div>
+<div class="line"><span class="lineno">  204</span>  }</div>
+<div class="line"><span class="lineno">  205</span>  <span class="keywordflow">return</span> type;</div>
+<div class="line"><span class="lineno">  206</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -504,20 +504,21 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  140</span>  std::vector&lt;std::string&gt; output_nodes;</div>
 <div class="line"><span class="lineno">  141</span>  std::vector&lt;std::string&gt; nodes_with_outputs;</div>
 <div class="line"><span class="lineno">  142</span>  std::unordered_set&lt;std::string&gt; unlikely_output_ops = {<span class="stringliteral">&quot;Const&quot;</span>, <span class="stringliteral">&quot;Assign&quot;</span>,</div>
-<div class="line"><span class="lineno">  143</span>                                                         <span class="stringliteral">&quot;NoOp&quot;</span>, <span class="stringliteral">&quot;Placeholder&quot;</span>};</div>
-<div class="line"><span class="lineno">  144</span>  <span class="keywordflow">for</span> (<span class="keyword">const</span> tf::NodeDef&amp; node : graph_def.node()) {</div>
-<div class="line"><span class="lineno">  145</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> std::string&amp; input_name : node.input())</div>
-<div class="line"><span class="lineno">  146</span>      nodes_with_outputs.push_back(input_name);</div>
-<div class="line"><span class="lineno">  147</span>  }</div>
-<div class="line"><span class="lineno">  148</span>  <span class="keywordflow">for</span> (<span class="keyword">const</span> tf::NodeDef&amp; node : graph_def.node()) {</div>
-<div class="line"><span class="lineno">  149</span>    <span class="keywordflow">if</span> (std::find(nodes_with_outputs.begin(), nodes_with_outputs.end(),</div>
-<div class="line"><span class="lineno">  150</span>                  node.name()) == nodes_with_outputs.end() &amp;&amp;</div>
-<div class="line"><span class="lineno">  151</span>        unlikely_output_ops.count(node.op()) == 0)</div>
-<div class="line"><span class="lineno">  152</span>      output_nodes.push_back(node.name());</div>
-<div class="line"><span class="lineno">  153</span>  }</div>
-<div class="line"><span class="lineno">  154</span> </div>
-<div class="line"><span class="lineno">  155</span>  <span class="keywordflow">return</span> output_nodes;</div>
-<div class="line"><span class="lineno">  156</span>}</div>
+<div class="line"><span class="lineno">  143</span>                                                         <span class="stringliteral">&quot;NoOp&quot;</span>, <span class="stringliteral">&quot;Placeholder&quot;</span>,</div>
+<div class="line"><span class="lineno">  144</span>                                                         <span class="stringliteral">&quot;Assert&quot;</span>};</div>
+<div class="line"><span class="lineno">  145</span>  <span class="keywordflow">for</span> (<span class="keyword">const</span> tf::NodeDef&amp; node : graph_def.node()) {</div>
+<div class="line"><span class="lineno">  146</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> std::string&amp; input_name : node.input())</div>
+<div class="line"><span class="lineno">  147</span>      nodes_with_outputs.push_back(input_name);</div>
+<div class="line"><span class="lineno">  148</span>  }</div>
+<div class="line"><span class="lineno">  149</span>  <span class="keywordflow">for</span> (<span class="keyword">const</span> tf::NodeDef&amp; node : graph_def.node()) {</div>
+<div class="line"><span class="lineno">  150</span>    <span class="keywordflow">if</span> (std::find(nodes_with_outputs.begin(), nodes_with_outputs.end(),</div>
+<div class="line"><span class="lineno">  151</span>                  node.name()) == nodes_with_outputs.end() &amp;&amp;</div>
+<div class="line"><span class="lineno">  152</span>        unlikely_output_ops.count(node.op()) == 0)</div>
+<div class="line"><span class="lineno">  153</span>      output_nodes.push_back(node.name());</div>
+<div class="line"><span class="lineno">  154</span>  }</div>
+<div class="line"><span class="lineno">  155</span> </div>
+<div class="line"><span class="lineno">  156</span>  <span class="keywordflow">return</span> output_nodes;</div>
+<div class="line"><span class="lineno">  157</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
