@@ -140,7 +140,8 @@ inline std::vector<std::string> getGraphOutputNames(
   std::vector<std::string> output_nodes;
   std::vector<std::string> nodes_with_outputs;
   std::unordered_set<std::string> unlikely_output_ops = {"Const", "Assign",
-                                                         "NoOp", "Placeholder"};
+                                                         "NoOp", "Placeholder",
+                                                         "Assert"};
   for (const tf::NodeDef& node : graph_def.node()) {
     for (const std::string& input_name : node.input())
       nodes_with_outputs.push_back(input_name);
