@@ -2,7 +2,7 @@
 <package format="3">
 
   <name>tensorflow_cpp</name>
-  <version>1.0.4</version>
+  <version>1.0.5</version>
   <description>Wrappers around the TensorFlow C++ API for easy usage in ROS</description>
 
   <maintainer email="lennart.reiher@rwth-aachen.de">Lennart Reiher</maintainer>
