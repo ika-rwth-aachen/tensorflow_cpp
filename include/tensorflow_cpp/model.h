@@ -162,7 +162,7 @@ class Model {
    */
   std::unordered_map<std::string, tf::Tensor> operator()(
     const std::vector<std::pair<std::string, tf::Tensor>>& inputs,
-    const std::vector<std::string>& output_names) {
+    const std::vector<std::string>& output_names) const{
 
     // properly set input/output names for session->Run()
     std::vector<std::pair<std::string, tf::Tensor>> input_nodes;
@@ -170,9 +170,9 @@ class Model {
     if (is_saved_model_) {
       for (const auto& input : inputs)
         input_nodes.push_back(
-          {saved_model_layer2node_[input.first], input.second});
+          {saved_model_layer2node_.find(input.first)->second, input.second});
       for (const auto& name : output_names)
-        output_node_names.push_back(saved_model_layer2node_[name]);
+        output_node_names.push_back(saved_model_layer2node_.find(name)->second);
     } else if (is_frozen_graph_) {
       input_nodes = inputs;
       output_node_names = output_names;
@@ -207,7 +207,7 @@ class Model {
    *
    * @return  tf::Tensor       output tensor
    */
-  tf::Tensor operator()(const tf::Tensor& input_tensor) {
+  tf::Tensor operator()(const tf::Tensor& input_tensor) const {
 
     if (n_inputs_ != 1 || n_outputs_ != 1) {
       throw std::runtime_error(
@@ -235,7 +235,7 @@ class Model {
    * @return  std::vector<tf::Tensor>     output tensors
    */
   std::vector<tf::Tensor> operator()(
-    const std::vector<tf::Tensor>& input_tensors) {
+    const std::vector<tf::Tensor>& input_tensors) const {
 
     if (input_tensors.size() != n_inputs_) {
       throw std::runtime_error(
