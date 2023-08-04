@@ -14,8 +14,6 @@
 
 *tensorflow_cpp* is a header-only library that provides helpful wrappers around the [TensorFlow C++ API](https://www.tensorflow.org/api_docs/cc), allowing you to **easily load, inspect, and run saved models and frozen graphs in C++**. The library is easy to integrate into CMake projects, but is also available as a [ROS and ROS2](https://www.ros.org/) package.
 
-If you want to use the TensorFlow C++ API to load, inspect, and run saved models and frozen graphs in C++, we suggest that you also check out our helper library tensorflow_cpp. 
-
 If you are looking for an easy way to install the TensorFlow C++ API, we suggest that you also check out our repository [*libtensorflow_cc*](https://github.com/ika-rwth-aachen/libtensorflow_cc). There, we provide a pre-built library and a Docker image for easy installation and usage of the TensorFlow C++ API. <a href="https://github.com/ika-rwth-aachen/libtensorflow_cc"><img src="https://img.shields.io/github/stars/ika-rwth-aachen/libtensorflow_cc?style=social"/></a>
 
 ---
