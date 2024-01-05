@@ -14,6 +14,14 @@
 
 *tensorflow_cpp* is a header-only library that provides helpful wrappers around the [TensorFlow C++ API](https://www.tensorflow.org/api_docs/cc), allowing you to **easily load, inspect, and run saved models and frozen graphs in C++**. The library is easy to integrate into CMake projects, but is also available as a [ROS and ROS2](https://www.ros.org/) package.
 
+> [!IMPORTANT]  
+> This repository is open-sourced and maintained by the [**Institute for Automotive Engineering (ika) at RWTH Aachen University**](https://www.ika.rwth-aachen.de/).  
+> **Deep Learning** is one of many research topics within our [*Vehicle Intelligence & Automated Driving*](https://www.ika.rwth-aachen.de/en/competences/fields-of-research/vehicle-intelligence-automated-driving.html) domain.  
+> If you would like to learn more about how we can support your deep learning or automated driving efforts, feel free to reach out to us!  
+> &nbsp;&nbsp;&nbsp;&nbsp; *Timo Woopen - Manager Research Area Vehicle Intelligence & Automated Driving*  
+> &nbsp;&nbsp;&nbsp;&nbsp; *+49 241 80 23549*  
+> &nbsp;&nbsp;&nbsp;&nbsp; *timo.woopen@ika.rwth-aachen.de*  
+
 If you are looking for an easy way to install the TensorFlow C++ API, we suggest that you also check out our repository [*libtensorflow_cc*](https://github.com/ika-rwth-aachen/libtensorflow_cc). There, we provide a pre-built library and a Docker image for easy installation and usage of the TensorFlow C++ API. <a href="https://github.com/ika-rwth-aachen/libtensorflow_cc"><img src="https://img.shields.io/github/stars/ika-rwth-aachen/libtensorflow_cc?style=social"/></a>
 
 ---
